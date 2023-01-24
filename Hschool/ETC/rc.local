@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff.
+
+touch /var/lock/subsys/local
+
+# setting hostname
+hostname ftz.hackerschool.org
+
+# run web server
+/etc/init.d/httpd start
+
+# open level4 port
+cp /bin/ls /home/level4/tmp/backdoor
+chown level4.level4 /home/level4/tmp/backdoor
+/etc/init.d/xinetd restart
+rm -rf /home/level4/tmp/backdoor
+
+# run level10
+/home/level10/program/level10
+
+# get ip
+dhclient eth0
+

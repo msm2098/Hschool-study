@@ -1,0 +1,11 @@
+# .bashrc
+
+# User specific aliases and functions
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+export LC_ALL="ko_KR.eucKR"
+export LANG="ko_KR.eucKR"
